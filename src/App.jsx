@@ -35,7 +35,6 @@ const App = () => {
       <PrivaFooter />
       <div class="aurora"></div>
     </div>
-    
   );
 };
 
