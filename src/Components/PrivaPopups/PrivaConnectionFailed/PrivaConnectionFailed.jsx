@@ -5,7 +5,7 @@ const PrivaConnectionFailed = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(function () {
-      navigate("../../");
+      navigate("../../Priva-React-Team/");
     }, 2000);
   }, []);
 

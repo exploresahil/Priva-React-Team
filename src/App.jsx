@@ -16,19 +16,19 @@ const App = () => {
     <div className="mainApp">
       <PrivaHeader />
       <Routes>
-        <Route path="/" element={<PrivaMain />} />
+        <Route path="/Priva-React-Team/" element={<PrivaMain />} />
         <Route
-          path="/PrivaRegistrationLogin"
+          path="/Priva-React-Team/PrivaRegistrationLogin"
           element={<PrivaRegistrationLogin />}
         />
-        <Route path="/PrivaLogin" element={<PrivaLogin />} />
+        <Route path="/Priva-React-Team/PrivaLogin" element={<PrivaLogin />} />
 
         <Route
-          path="/PrivaFormRegistration"
+          path="/Priva-React-Team/PrivaFormRegistration"
           element={<PrivaFormRegistration />}
         />
         <Route
-          path="/PrivaConnectionFailed"
+          path="/Priva-React-Team/PrivaConnectionFailed"
           element={<PrivaConnectionFailed />}
         />
       </Routes>

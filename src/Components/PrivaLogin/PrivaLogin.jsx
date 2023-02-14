@@ -75,7 +75,7 @@ const PrivaLogin = () => {
             </svg>
           </button>
         </div>
-        <Link to="../PrivaRegistrationLogin">
+        <Link to="../Priva-React-Team/PrivaRegistrationLogin">
           <button className="bactToRegistrationLogin">Back</button>
         </Link>
       </div>

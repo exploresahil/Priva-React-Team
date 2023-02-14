@@ -19,7 +19,7 @@ const PrivaHeader = () => {
 
   return (
     <div className="header">
-      <Link to="./">
+      <Link to="./Priva-React-Team/">
         <img src={privaLogo} alt="Priva Logo" />
       </Link>
       <div className="brand-full-name">

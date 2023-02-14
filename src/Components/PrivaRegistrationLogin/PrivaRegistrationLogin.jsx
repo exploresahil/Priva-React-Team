@@ -11,11 +11,11 @@ const Registration = () => {
     <div className="registration-container">
       <div className="cards">
         <h2>Login</h2>
-        <Link to="../" className="close-ico-link">
+        <Link to="../Priva-React-Team/" className="close-ico-link">
           <img src={CloseIco} className="close_ico" alt="close svg" />
         </Link>
         <div className="registration-content">
-          <Link to="../PrivaFormRegistration">
+          <Link to="../Priva-React-Team/PrivaFormRegistration">
             <div className="card Register">
               <img
                 src={RegisterPlusIco}
@@ -26,7 +26,7 @@ const Registration = () => {
               <p>One time register only</p>
             </div>
           </Link>
-          <Link to="../PrivaLogin">
+          <Link to="../Priva-React-Team/PrivaLogin">
             <div className="card Login">
               <img src={RegisterIco} alt="Register Plus svg" />
               <h3>Login</h3>
