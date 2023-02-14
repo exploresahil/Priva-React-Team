@@ -11,7 +11,7 @@ const Registration = () => {
     <div className="registration-container">
       <div className="cards">
         <h2>Login</h2>
-        <Link to="../Priva-React-Team/" className="close-ico-link">
+        <Link to="../Priva-React-Team/o" className="close-ico-link">
           <img src={CloseIco} className="close_ico" alt="close svg" />
         </Link>
         <div className="registration-content">

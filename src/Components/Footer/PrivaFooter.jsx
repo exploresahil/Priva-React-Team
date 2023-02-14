@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-
 import "./PrivaFooter.scss";
 
 const PrivaFooter = () => {
   return (
     <div className="footer">
       <button className="footer_btn help_btn">Help</button>
+      <p>Made with Love in India</p>
       <Link to="/Priva-React-Team/PrivaConnectionFailed">
         <button className="footer_btn not_compatible_btn">
           'IF NOT COMPATIBLE'
