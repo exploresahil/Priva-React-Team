@@ -1,4 +1,4 @@
-@use "../../veriables.scss" as v;
+@use "../../Veriables.scss" as v;
 
 .login-Container {
   height: calc(100vh - 160px);
@@ -120,4 +120,3 @@
     color: v.$blue;
   }
 }
-
