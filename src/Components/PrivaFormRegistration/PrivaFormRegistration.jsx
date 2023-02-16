@@ -43,7 +43,6 @@ const PrivaFormRegistration = () => {
             minlength="9"
             maxlength="14"
             placeholder="Enter Mobile Number"
-            onInput="this.value = this.value.replace(/[^0-9]/g, '')"
             required
             onkeypress="numberonly(this)"
           />
