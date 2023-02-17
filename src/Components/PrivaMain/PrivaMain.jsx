@@ -4,7 +4,29 @@ import gsap from "gsap";
 
 import "./PrivaMain.scss";
 
+import helloAudio from "./hello.mp3";
+
 const PrivaMain = () => {
+  //*----------> Audio Play function
+
+  useEffect(() => {
+    const audio = new Audio(helloAudio);
+    audio.play();
+
+    const interval = setInterval(() => {
+      audio.currentTime = 0;
+      audio.play();
+    }, 20000);
+
+    return () => {
+      clearInterval(interval);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  //*----------> Animation with gsap
+
   useEffect(() => {
     const readyOne = new SplitType(".ready", {
       types: "chars",
@@ -60,6 +82,8 @@ const PrivaMain = () => {
       repeatDelay: 2,
     });
   }, []);
+
+  //*----------> Home Component
 
   return (
     <div className="privaMain">

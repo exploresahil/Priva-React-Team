@@ -1,13 +1,32 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SplitType from "split-type";
 import gsap from "gsap";
-
-import { useNavigate } from "react-router-dom";
-
 import "./PrivaConnectionFailed.scss";
+import failedAudio from "./connection_failed.mp3";
 
 const PrivaConnectionFailed = () => {
+  //*----------> Audio Paly Function
+  useEffect(() => {
+    const audio = new Audio(failedAudio);
+    audio.play();
+
+    const interval = setInterval(() => {
+      audio.currentTime = 0;
+      audio.play();
+    }, 20000);
+
+    return () => {
+      clearInterval(interval);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  //*----------> Animation with gsap
+
   const navigate = useNavigate();
+
   useEffect(() => {
     const connectionFailed = new SplitType(".connectionFailed", {
       types: "lines",
@@ -35,6 +54,8 @@ const PrivaConnectionFailed = () => {
       navigate("../../Priva-React-Team/");
     }, 1500);
   }, []);
+
+  //*----------> Popup Component
 
   return (
     <div className="privaMainDiv">

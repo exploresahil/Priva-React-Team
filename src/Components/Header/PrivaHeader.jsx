@@ -6,6 +6,8 @@ import "./PrivaHeader.scss";
 import privaLogo from "./privaLogo.svg";
 
 const PrivaHeader = () => {
+  //*----------> Date and Time Function
+
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
@@ -16,6 +18,8 @@ const PrivaHeader = () => {
     }, 1000);
     return () => clearInterval(intervalId);
   }, []);
+
+  //*----------> Header Component
 
   return (
     <div className="header">

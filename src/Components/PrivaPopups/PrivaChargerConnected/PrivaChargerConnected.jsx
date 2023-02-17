@@ -1,13 +1,47 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+//*----------> Import Split-Type
+
 import SplitType from "split-type";
+
+//*----------> Import Gsap
+
 import gsap from "gsap";
 
-import { useNavigate } from "react-router-dom";
+//*----------> Import scss
 
 import "./PrivaChargerConnected.scss";
 
+//*----------> Import Audio
+
+import connectedAudio from "./charger_connected.mp3";
+
+//*----------> Main Component
+
 const PrivaChargerConnected = () => {
+  //*----------> Audio Play Function
+
+  useEffect(() => {
+    const audio = new Audio(connectedAudio);
+    audio.play();
+
+    const interval = setInterval(() => {
+      audio.currentTime = 0;
+      audio.play();
+    }, 20000);
+
+    return () => {
+      clearInterval(interval);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  //*----------> Animate with Gsap
+
   const navigate = useNavigate();
+
   useEffect(() => {
     const chargerConnected = new SplitType(".chargerConnected", {
       types: "lines",
@@ -35,6 +69,8 @@ const PrivaChargerConnected = () => {
       navigate("../../Priva-React-Team/PrivaRegistrationLogin");
     }, 1500);
   }, []);
+
+  //*----------> Popup Component
 
   return (
     <div className="privaMainDiv">

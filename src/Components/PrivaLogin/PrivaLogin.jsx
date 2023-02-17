@@ -1,9 +1,30 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./PrivaLogin.scss";
 
+import mobileNoAudio from "./mobile_number.mp3";
+
 const PrivaLogin = () => {
+  //*----------> Audio Play Functions
+  useEffect(() => {
+    const audio = new Audio(mobileNoAudio);
+    audio.play();
+
+    const interval = setInterval(() => {
+      audio.currentTime = 0;
+      audio.play();
+    }, 15000);
+
+    return () => {
+      clearInterval(interval);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  //*----------> On-Screen Mobile Number Input Function
+
   const [number, setNumber] = useState("+91 ");
 
   const handleClick = (e) => {
@@ -22,6 +43,8 @@ const PrivaLogin = () => {
       }
     }
   };
+
+  //*----------> Mobile Number Component
 
   return (
     <div className="login-Container">

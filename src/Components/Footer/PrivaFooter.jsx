@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./PrivaFooter.scss";
 
 const PrivaFooter = () => {
+  //*----------> Footer Component
+
   return (
     <div className="footer">
       <div className="settings">
