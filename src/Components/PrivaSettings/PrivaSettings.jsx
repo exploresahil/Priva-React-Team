@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import CloseIco from "./close.svg";
+import { Link } from "react-router-dom";
 
 import "./PrivaSettings.scss";
 
@@ -37,6 +39,9 @@ const PrivaSettings = (props) => {
     <div className="privaMainDiv">
       <div className="settings-container">
         <h2>Settings</h2>
+        <Link to="../Priva-React-Team/">
+          <img src={CloseIco}></img>
+        </Link>
         <div className="settings">
           <label>Brightness:</label>
           <input
