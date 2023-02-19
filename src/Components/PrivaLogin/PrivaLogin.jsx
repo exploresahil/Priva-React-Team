@@ -1,20 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import "./PrivaLogin.scss";
 
 import mobileNoAudio from "./mobile_number.mp3";
 
-const PrivaLogin = () => {
+const PrivaLogin = ({ volume }) => {
   //*----------> Audio Play Functions
+  const audioRef = useRef(null);
+
   useEffect(() => {
-    const audio = new Audio(mobileNoAudio);
+    const audio = audioRef.current;
+    audio.volume = localStorage.getItem("volume") / 100 || 1;
     audio.play();
 
     const interval = setInterval(() => {
       audio.currentTime = 0;
       audio.play();
-    }, 15000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -102,6 +105,7 @@ const PrivaLogin = () => {
           <button className="bactToRegistrationLogin">Back</button>
         </Link>
       </div>
+      <audio ref={audioRef} src={mobileNoAudio} />
     </div>
   );
 };

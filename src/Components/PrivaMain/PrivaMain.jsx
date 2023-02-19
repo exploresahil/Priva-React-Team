@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import SplitType from "split-type";
 import gsap from "gsap";
 
@@ -6,17 +6,19 @@ import "./PrivaMain.scss";
 
 import helloAudio from "./hello.mp3";
 
-const PrivaMain = () => {
+const PrivaMain = ({ volume }) => {
   //*----------> Audio Play function
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    const audio = new Audio(helloAudio);
+    const audio = audioRef.current;
+    audio.volume = localStorage.getItem("volume") / 100 || 1;
     audio.play();
 
     const interval = setInterval(() => {
       audio.currentTime = 0;
       audio.play();
-    }, 20000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -94,6 +96,7 @@ const PrivaMain = () => {
       </div>
       <h3>To Charge your Vehicle</h3>
       <p>please plug in the charger</p>
+      <audio ref={audioRef} src={helloAudio} />
     </div>
   );
 };

@@ -1,20 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import SplitType from "split-type";
 import gsap from "gsap";
 import "./PrivaConnectionFailed.scss";
 import failedAudio from "./connection_failed.mp3";
 
-const PrivaConnectionFailed = () => {
+const PrivaConnectionFailed = ({ volume }) => {
   //*----------> Audio Paly Function
+  const audioRef = useRef(null);
+
   useEffect(() => {
-    const audio = new Audio(failedAudio);
+    const audio = audioRef.current;
+    audio.volume = localStorage.getItem("volume") / 100 || 1;
     audio.play();
 
     const interval = setInterval(() => {
       audio.currentTime = 0;
       audio.play();
-    }, 20000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -62,6 +65,7 @@ const PrivaConnectionFailed = () => {
       <div className="connection-failed-container">
         <h3 className="connectionFailed">Connection Failed!</h3>
       </div>
+      <audio ref={audioRef} src={failedAudio} />
     </div>
   );
 };

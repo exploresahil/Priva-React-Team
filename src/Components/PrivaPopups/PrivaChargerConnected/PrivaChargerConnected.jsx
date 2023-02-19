@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 //*----------> Import Split-Type
@@ -19,17 +19,20 @@ import connectedAudio from "./charger_connected.mp3";
 
 //*----------------------------------------> Main Component
 
-const PrivaChargerConnected = () => {
+const PrivaChargerConnected = ({ volume }) => {
   //*----------> Audio Play Function
 
+  const audioRef = useRef(null);
+
   useEffect(() => {
-    const audio = new Audio(connectedAudio);
+    const audio = audioRef.current;
+    audio.volume = localStorage.getItem("volume") / 100 || 1;
     audio.play();
 
     const interval = setInterval(() => {
       audio.currentTime = 0;
       audio.play();
-    }, 20000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -77,6 +80,7 @@ const PrivaChargerConnected = () => {
       <div className="charger-connected-container">
         <h3 className="chargerConnected">Charger Connected</h3>
       </div>
+      <audio ref={audioRef} src={connectedAudio} />
     </div>
   );
 };

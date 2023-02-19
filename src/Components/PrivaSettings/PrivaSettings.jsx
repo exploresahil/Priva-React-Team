@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import CloseIco from "./close.svg";
 import { Link } from "react-router-dom";
 
@@ -27,25 +28,20 @@ const PrivaSettings = (props) => {
   }, []);
 
   //*----------> State of Volume
-  const [volume, setVolume] = useState(() => {
-    const storedVolume = localStorage.getItem("volume");
-    return storedVolume !== null ? parseInt(storedVolume) : 100;
-  });
+  const [volume, setVolume] = useState(localStorage.getItem("volume") || 50);
 
-  function handleVolumeChange(event) {
-    const newVolume = event.target.value;
-    setVolume(newVolume);
-    localStorage.setItem("volume", newVolume);
-  }
-  /*
-  const [volume, setVolume] = useState(100);
+  useEffect(() => {
+    const audioElements = document.getElementsByTagName("audio");
+    for (let i = 0; i < audioElements.length; i++) {
+      audioElements[i].volume = volume / 100;
+    }
+    localStorage.setItem("volume", volume);
+  }, [volume]);
 
-  function handleVolumeChange(event) {
-    const newVolume = event.target.value;
-    setVolume(newVolume);
-    props.onVolumeChange(newVolume);
-  }
-*/
+  const handleVolumeChange = (event) => {
+    setVolume(event.target.value);
+  };
+
   return (
     <div className="privaMainDiv">
       <div className="settings-container">
@@ -65,13 +61,14 @@ const PrivaSettings = (props) => {
           />
         </div>
         <div className="settings">
-          <label>Volume: (in Dev)</label>
+          <label>Volume:</label>
+
           <input
-            type="range"
             id="volumeSlider"
-            min="0"
+            type="range"
+            min="5"
             max="100"
-            defaultValue={volume}
+            value={volume}
             onChange={handleVolumeChange}
           />
         </div>
