@@ -17,7 +17,7 @@ import "./PrivaChargerConnected.scss";
 
 import connectedAudio from "./charger_connected.mp3";
 
-//*----------> Main Component
+//*----------------------------------------> Main Component
 
 const PrivaChargerConnected = () => {
   //*----------> Audio Play Function

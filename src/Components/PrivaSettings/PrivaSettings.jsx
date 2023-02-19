@@ -25,8 +25,19 @@ const PrivaSettings = (props) => {
       setBrightness(parseInt(storedBrightness));
     }
   }, []);
-  /*
+
   //*----------> State of Volume
+  const [volume, setVolume] = useState(() => {
+    const storedVolume = localStorage.getItem("volume");
+    return storedVolume !== null ? parseInt(storedVolume) : 100;
+  });
+
+  function handleVolumeChange(event) {
+    const newVolume = event.target.value;
+    setVolume(newVolume);
+    localStorage.setItem("volume", newVolume);
+  }
+  /*
   const [volume, setVolume] = useState(100);
 
   function handleVolumeChange(event) {
@@ -60,10 +71,8 @@ const PrivaSettings = (props) => {
             id="volumeSlider"
             min="0"
             max="100"
-            /*
-            value={volume}
+            defaultValue={volume}
             onChange={handleVolumeChange}
-            */
           />
         </div>
       </div>
