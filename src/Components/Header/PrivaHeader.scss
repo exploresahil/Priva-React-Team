@@ -39,21 +39,23 @@
 
 .fullScreenButton {
   position: absolute;
-  top: 2em;
-  right: 2em;
-  padding: 0.6em 1.2em;
+  top: 1em;
+  right: 1em;
 
-  border-radius: 20px;
-  background: v.$background;
-  box-shadow: v.$shadow;
-  border: v.$border;
+  background: none;
+  outline: none;
+  border: none;
 
   cursor: pointer;
-
-  font-family: v.$bebas;
-  color: v.$light;
+  width: 4em;
+  height: 4em;
+  opacity: 0;
 
   &:hover {
-    background: v.$blue;
+    opacity: 1;
   }
+}
+
+.fullScreen {
+  height: 1.5em !important;
 }

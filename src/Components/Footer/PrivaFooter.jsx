@@ -14,12 +14,11 @@ const PrivaFooter = () => {
         <Link to="../Priva-React-Team/">
           <button className="footer_btn help_btn">Help</button>
         </Link>
-        {
-          isHomePage &&
-        <Link to="/Priva-React-Team/PrivaSettings">
-          <button className="footer_btn home_btn">Settings</button>
-        </Link>
-      }
+        {isHomePage && (
+          <Link to="/Priva-React-Team/PrivaSettings">
+            <button className="footer_btn home_btn">Settings</button>
+          </Link>
+        )}
       </div>
       <p>Made with Love in India</p>
       <Link to="/Priva-React-Team/PrivaConnectionFailed">

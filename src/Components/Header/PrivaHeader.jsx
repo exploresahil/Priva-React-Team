@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 import "./PrivaHeader.scss";
 
 import privaLogo from "./privaLogo.svg";
+import openIcon from "./assets/expand.svg";
+import closeIcon from "./assets/compress.svg";
+
+const OpenIcon = () => {
+  return <img className="fullScreen" src={openIcon} alt="Open Icon" />;
+};
+
+const CloseIcon = () => {
+  return <img className="fullScreen" src={closeIcon} alt="Close Icon" />;
+};
 
 const PrivaHeader = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -17,6 +27,7 @@ const PrivaHeader = () => {
       setIsFullScreen(true);
     }
   };
+
   //*----------> Date and Time Function
 
   const [date, setDate] = useState(new Date());
@@ -45,7 +56,7 @@ const PrivaHeader = () => {
         id="fullScreenButto"
         onClick={handleFullScreen}
       >
-        {isFullScreen ? "[ ]" : "] ["}
+        {isFullScreen ? <CloseIcon /> : <OpenIcon />}
       </button>
       <div>
         <div>{date.toLocaleDateString()}</div>
