@@ -18,7 +18,7 @@ const PrivaMain = ({ volume }) => {
     const interval = setInterval(() => {
       audio.currentTime = 0;
       audio.play();
-    }, 5000);
+    }, 20000);
 
     return () => {
       clearInterval(interval);

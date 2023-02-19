@@ -17,7 +17,7 @@ const PrivaLogin = ({ volume }) => {
     const interval = setInterval(() => {
       audio.currentTime = 0;
       audio.play();
-    }, 5000);
+    }, 15000);
 
     return () => {
       clearInterval(interval);
