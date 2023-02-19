@@ -1,0 +1,76 @@
+@use "../../Veriables.scss" as v;
+
+.dial {
+  position: relative !important;
+  width: 100px;
+  height: 100px;
+
+  &__needle {
+    position: absolute;
+    top: 32.5%;
+    left: 50%;
+
+    transform-origin: bottom center;
+    //transform: rotate(-90deg); /* Added transform property */
+    rotate: -90deg;
+    width: 6px;
+    height: 160px;
+    background-color: v.$yellow;
+    background: linear-gradient(180deg, v.$yellow, #00000011);
+    box-shadow: 0 -19px 9px -3px v.$yellow;
+    border-radius: 10px;
+    filter: blur(1px);
+  }
+
+  #chargingSlider {
+    opacity: 0.1;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border: none !important;
+    appearance: none !important;
+    -moz-appearance: none !important;
+    margin: 10px 0;
+    width: 300px;
+    height: 2px;
+    outline: none;
+    background: none;
+    box-shadow: none;
+
+    &::-moz-range-thumb {
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      border: 0px solid #000000;
+      border-radius: 2em;
+      background: v.$yellow;
+      cursor: pointer;
+      width: 2em;
+      height: 1.2em;
+
+      &:hover,
+      &:focus {
+        background: v.$blue;
+      }
+    }
+
+    &::-moz-range-track {
+      cursor: pointer;
+      background: v.$light;
+      border-radius: 2em;
+      height: 0.2em !important;
+    }
+  }
+
+  h2 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: v.$light;
+    font-family: v.$bebas;
+    font-size: 2rem;
+  }
+}

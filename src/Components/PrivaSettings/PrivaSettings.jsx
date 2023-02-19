@@ -28,7 +28,7 @@ const PrivaSettings = (props) => {
   }, []);
 
   //*----------> State of Volume
-  const [volume, setVolume] = useState(localStorage.getItem("volume") || 50);
+  const [volume, setVolume] = useState(localStorage.getItem("volume") || 100);
 
   useEffect(() => {
     const audioElements = document.getElementsByTagName("audio");
@@ -66,7 +66,7 @@ const PrivaSettings = (props) => {
           <input
             id="volumeSlider"
             type="range"
-            min="5"
+            min="1"
             max="100"
             value={volume}
             onChange={handleVolumeChange}

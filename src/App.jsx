@@ -11,6 +11,7 @@ import PrivaConnectionFailed from "./Components/PrivaPopups/PrivaConnectionFaile
 import PrivaChargerConnected from "./Components/PrivaPopups/PrivaChargerConnected/PrivaChargerConnected";
 
 import PrivaSettings from "./Components/PrivaSettings/PrivaSettings";
+import PrivaCharging from "./Components/PrivaCharging/PrivaCharging";
 
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -70,6 +71,10 @@ const App = () => {
               */
             />
           }
+        />
+        <Route
+          path="/Priva-React-Team/PrivaCharging"
+          element={<PrivaCharging />}
         />
       </Routes>
       <PrivaFooter />

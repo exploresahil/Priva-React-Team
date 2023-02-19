@@ -5,6 +5,8 @@ import "./PrivaFooter.scss";
 const PrivaFooter = () => {
   const footerLocation = useLocation();
   const isHomePage = footerLocation.pathname === "/Priva-React-Team/";
+  const isHome = footerLocation.pathname === "/Priva-React-Team";
+  const isHomeHome = footerLocation.pathname === "/";
 
   //*----------> Footer Component
 
@@ -14,7 +16,7 @@ const PrivaFooter = () => {
         <Link to="../Priva-React-Team/">
           <button className="footer_btn help_btn">Help</button>
         </Link>
-        {isHomePage && (
+        {(isHomePage || isHome || isHomeHome) && (
           <Link to="/Priva-React-Team/PrivaSettings">
             <button className="footer_btn home_btn">Settings</button>
           </Link>
