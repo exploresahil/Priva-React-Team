@@ -1,34 +1,69 @@
 @use "../../Veriables.scss" as v;
 
 .dial {
-  position: relative !important;
-  width: 100px;
-  height: 100px;
+  &__container {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__circle {
+    border: 1px solid red;
+  }
+
+  h1 {
+    position: absolute;
+    top: -100px;
+    font-family: v.$bebas;
+    color: v.$yellow;
+    letter-spacing: 1px;
+    font-size: 3rem;
+  }
 
   &__needle {
-    position: absolute;
-    top: 32.5%;
-    left: 50%;
-
     transform-origin: bottom center;
-    //transform: rotate(-90deg); /* Added transform property */
     rotate: -90deg;
-    width: 6px;
-    height: 160px;
+    width: 8px;
+    height: 180px;
     background-color: v.$yellow;
-    background: linear-gradient(180deg, v.$yellow, #00000011);
-    box-shadow: 0 -19px 9px -3px v.$yellow;
+    background: linear-gradient(180deg, v.$red, #00000011);
     border-radius: 10px;
-    filter: blur(1px);
+    //filter: blur(1px);
+    position: absolute;
+    bottom: 30px;
+  }
+
+  &__dot {
+    $size: 30px;
+    background-color: v.$blue;
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    position: absolute;
+    bottom: 16px;
+    //filter: blur(2px);
+
+    &::after {
+      content: "";
+      width: 350px;
+      height: 1px;
+      background: radial-gradient(
+        v.$light 0%,
+        rgba(255, 255, 255, 0.245) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      position: absolute;
+      bottom: 14px;
+      left: -160px;
+      z-index: -1;
+    }
   }
 
   #chargingSlider {
     opacity: 0.1;
-    position: absolute;
-    top: 90%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
     border: none !important;
     appearance: none !important;
     -moz-appearance: none !important;
@@ -38,6 +73,8 @@
     outline: none;
     background: none;
     box-shadow: none;
+    position: absolute;
+    bottom: -150px;
 
     &::-moz-range-thumb {
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
@@ -63,14 +100,10 @@
   }
 
   h2 {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
+    font-size: 6rem;
     font-weight: bold;
     color: v.$light;
     font-family: v.$bebas;
-    font-size: 2rem;
+    opacity: 0.75;
   }
 }

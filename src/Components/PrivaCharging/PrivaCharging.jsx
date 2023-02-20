@@ -15,16 +15,22 @@ const PrivaCharging = () => {
 
   return (
     <div className="dial privaMainDiv">
-      <h2> {value}%</h2>
-      <div className="dial__needle" style={dialStyle}></div>
-      <input
-        id="chargingSlider"
-        type="range"
-        min="0"
-        max="100"
-        value={value}
-        onChange={handleChange}
-      />
+      <div className="dial__container">
+        <h1>Charging</h1>
+        <div className="dial__circle">
+          <div className="dial__needle" style={dialStyle}></div>
+          <div className="dial__dot"></div>
+        </div>
+        <h2>{value}%</h2>
+        <input
+          id="chargingSlider"
+          type="range"
+          min="0"
+          max="100"
+          value={value}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 };
