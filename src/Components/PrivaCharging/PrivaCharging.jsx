@@ -17,7 +17,7 @@ const PrivaCharging = () => {
     <div className="dial privaMainDiv">
       <div className="dial__container">
         <h1>Charging</h1>
-        <div className="dial__circle">
+        <div className="dial__circle" id="circle">
           <div className="dial__needle" style={dialStyle}></div>
           <div className="dial__dot"></div>
         </div>
