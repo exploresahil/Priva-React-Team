@@ -1,109 +1,147 @@
 @use "../../Veriables.scss" as v;
 
-.dial {
-  &__container {
-    height: 200px;
+/*=============== BATTERY ===============*/
+.battery {
+  height: 50vh;
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5rem;
+
+  &__card {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    background-color: var(--container-color);
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
     display: flex;
-    flex-direction: column;
+    gap: 5em;
     justify-content: center;
     align-items: center;
-    position: relative;
+    align-items: center;
   }
-
-  &__circle {
-    border: 1px solid red;
+  &__text {
+    margin-bottom: -0.5rem;
+    font-size: 1.5em;
   }
-
-  h1 {
-    position: absolute;
-    top: -100px;
+  &__percentage {
+    font-size: var(--biggest-font-size);
+    font-size: 5em;
     font-family: v.$bebas;
-    color: v.$yellow;
-    letter-spacing: 1px;
-    font-size: 3rem;
   }
+  &__status {
+    position: absolute;
+    bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-size: var(--smaller-font-size);
 
-  &__needle {
-    transform-origin: bottom center;
-    rotate: -90deg;
-    width: 8px;
+    & i {
+      font-size: 1.25rem;
+    }
+  }
+  &__pill {
+    position: relative;
+    width: 75px;
     height: 180px;
-    background-color: v.$yellow;
-    background: linear-gradient(180deg, v.$red, #00000011);
-    border-radius: 10px;
-    //filter: blur(1px);
-    position: absolute;
-    bottom: 30px;
+    background-color: var(--container-color);
+    box-shadow: inset 20px 0px 48px hsl(0, 0%, 16%),
+      inset -4px 12px 48px hsl(0, 0%, 56%);
+    border-radius: 3rem;
+    justify-self: flex-end;
+    transform: rotateX("90deg");
   }
-
-  &__dot {
-    $size: 30px;
-    background-color: v.$blue;
-    width: $size;
-    height: $size;
-    border-radius: $size;
+  &__level {
     position: absolute;
-    bottom: 16px;
-    //filter: blur(2px);
+    inset: 2px;
+    border-radius: 3rem;
+    overflow: hidden;
+  }
+  &__liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: var(--gradient-color-red);
+    box-shadow: inset -10px 0px 12px hsla(0, 0%, 0%, 0.1),
+      inset 12px 0px 12px hsla(0, 0%, 0%, 0.15);
+    transition: 0.3s;
 
     &::after {
       content: "";
-      width: 350px;
-      height: 1px;
-      background: radial-gradient(
-        v.$light 0%,
-        rgba(255, 255, 255, 0.245) 50%,
-        rgba(0, 0, 0, 0) 100%
-      );
       position: absolute;
-      bottom: 14px;
-      left: -160px;
-      z-index: -1;
+      height: 8px;
+      background: var(--gradient-color-red);
+      box-shadow: inset 0px -3px 6px hsla(0, 0%, 0%, 0.2);
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: -4px;
+      border-radius: 50%;
     }
   }
+}
 
-  #chargingSlider {
-    opacity: 0.1;
-    border: none !important;
-    appearance: none !important;
-    -moz-appearance: none !important;
-    margin: 10px 0;
-    width: 300px;
-    height: 2px;
-    outline: none;
-    background: none;
-    box-shadow: none;
-    position: absolute;
-    bottom: -150px;
+/* Full battery icon color */
+.green-color {
+  background: var(--gradient-color-green);
+}
 
-    &::-moz-range-thumb {
-      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-      border: 0px solid #000000;
-      border-radius: 2em;
-      background: v.$yellow;
-      cursor: pointer;
-      width: 2em;
-      height: 1.2em;
+/* Battery charging animation */
+.animated-green {
+  background: var(--gradient-color-green);
+  animation: animated-charging-battery 1.2s infinite alternate;
+}
 
-      &:hover,
-      &:focus {
-        background: v.$blue;
-      }
-    }
+/* Low battery animation */
+.animated-red {
+  background: var(--gradient-color-red);
+  animation: animated-low-battery 1.2s infinite alternate;
+}
 
-    &::-moz-range-track {
-      cursor: pointer;
-      background: v.$light;
-      border-radius: 2em;
-      height: 0.2em !important;
-    }
+.animated-green,
+.animated-red,
+.green-color {
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@keyframes animated-charging-battery {
+  0% {
+    text-shadow: none;
   }
-
-  h2 {
-    font-size: 6rem;
-    font-weight: bold;
-    color: v.$light;
-    font-family: v.$bebas;
-    opacity: 0.75;
+  100% {
+    text-shadow: 0 0 6px hsl(92, 90%, 68%);
   }
+}
+
+@keyframes animated-low-battery {
+  0% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 0 0 8px hsl(7, 89%, 46%);
+  }
+}
+
+/* Liquid battery with gradient color */
+.gradient-color-red,
+.gradient-color-red::after {
+  background: var(--gradient-color-red);
+}
+.gradient-color-orange,
+.gradient-color-orange::after {
+  background: var(--gradient-color-orange);
+}
+.gradient-color-yellow,
+.gradient-color-yellow::after {
+  background: var(--gradient-color-yellow);
+}
+.gradient-color-green,
+.gradient-color-green::after {
+  background: var(--gradient-color-green);
 }
