@@ -35,7 +35,7 @@ const PrivaSettings = (props) => {
     for (let i = 0; i < audioElements.length; i++) {
       audioElements[i].volume = volume / 100;
     }
-    localStorage.setItem("volume", volume);
+    localStorage.setItem("volume", volume); 
   }, [volume]);
 
   const handleVolumeChange = (event) => {
