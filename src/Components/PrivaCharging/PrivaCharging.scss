@@ -11,8 +11,8 @@
 
   .battery-container-main {
     position: relative;
-    width: 350px;
-    height: 100px;
+    width: 500px;
+    height: 200px;
     z-index: 6;
     border-radius: 15px;
     padding: 5px;
@@ -23,8 +23,8 @@
 
     .battery-visual {
       position: absolute;
-      width: 360px;
-      height: 110px;
+      width: 510px;
+      height: 210px;
       background: linear-gradient(
         rgba(255, 255, 255, 1) 0%,
         rgba(30, 30, 30, 1) 25%,
@@ -34,20 +34,20 @@
       );
       opacity: 0.5;
       mix-blend-mode: screen;
-      border-radius: 10px;
+      border-radius: 20px;
     }
 
     .battery-container {
       width: 100%;
       height: 100%;
       //background-color: red;
-      border-radius: 10px;
+      border-radius: 20px;
       overflow: hidden;
 
       .battery-level {
         height: 100%;
         transition: all 200ms ease-in-out;
-        border-radius: 10px;
+        border-radius: 20px;
       }
     }
   }
@@ -63,9 +63,9 @@
     rgba(255, 255, 255, 1) 100%
   );
   width: 10px;
-  height: 20px;
+  height: 100px;
   right: -10px;
-  bottom: 48%;
+  bottom: 42%;
   opacity: 0.5;
   mix-blend-mode: screen;
 }
@@ -76,19 +76,19 @@
   font-family: v.$bebas;
   font-size: 2.5rem;
   font-weight: 100;
-  top: 30%;
+  top: 20%;
 }
 
 .remainimg-time {
   position: absolute;
   font-weight: 500;
-  bottom: 32%;
+  bottom: 23%;
 }
 
 .power {
   position: absolute;
   font-weight: 500;
-  bottom: 25%;
+  bottom: 17%;
 }
 
 #chargingSlider {
@@ -103,7 +103,7 @@
   width: 25vw;
 
   position: absolute;
-  bottom: 10vh;
+  bottom: 2%;
 }
 
 #chargingSlider::-moz-range-thumb {
