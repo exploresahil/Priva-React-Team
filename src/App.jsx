@@ -12,15 +12,13 @@ import PrivaChargerConnected from "./Components/PrivaPopups/PrivaChargerConnecte
 
 import PrivaSettings from "./Components/PrivaSettings/PrivaSettings";
 import PrivaCharging from "./Components/PrivaCharging/PrivaCharging";
+import PrivaUserDetails from "./Components/PrivaUserDetails/PrivaUserDetails";
 
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const App = () => {
   const [brightness, setBrightness] = useState(100);
-  /*
-  const [volume, setVolume] = useState(50);
-*/
 
   function handleBrightnessChange(newBrightness) {
     setBrightness(newBrightness);
@@ -32,12 +30,7 @@ const App = () => {
       brightnessContainer.style.filter = `brightness(${brightness}%)`;
     }
   }, [brightness]);
-  /*
-  function handleVolumeChange(newVolume) {
-    setVolume(newVolume);
-    // Update app volume here
-  }
-*/
+
   return (
     <div className="mainApp" id="brightnessContainer">
       <PrivaHeader />
@@ -64,13 +57,12 @@ const App = () => {
         <Route
           path="/Priva-React-Team/PrivaSettings"
           element={
-            <PrivaSettings
-              onBrightnessChange={handleBrightnessChange}
-              /*
-              onVolumeChange={handleVolumeChange}
-              */
-            />
+            <PrivaSettings onBrightnessChange={handleBrightnessChange} />
           }
+        />
+        <Route
+          path="/Priva-React-Team/PrivaUserDetails"
+          element={<PrivaUserDetails />}
         />
         <Route
           path="/Priva-React-Team/PrivaCharging"
