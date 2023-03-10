@@ -12,13 +12,13 @@ const PrivaUserDetails = () => {
         </Link>
         <div className="userDetials">
           <h3>
-            <span>Name:</span> Gangadhar Shaktimaan
+            <span>Name:</span> firstname lastName
           </h3>
           <h3>
             <span>Mobile Number:</span> +91 1234567890
           </h3>
           <h3>
-            <span>Email ID:</span> gangadhar@shaktimaan.com
+            <span>Email ID:</span> email@example.com
           </h3>
         </div>
         <h2 className="historyTitle">Charging History</h2>

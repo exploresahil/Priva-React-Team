@@ -13,6 +13,7 @@ import PrivaChargerConnected from "./Components/PrivaPopups/PrivaChargerConnecte
 import PrivaSettings from "./Components/PrivaSettings/PrivaSettings";
 import PrivaCharging from "./Components/PrivaCharging/PrivaCharging";
 import PrivaUserDetails from "./Components/PrivaUserDetails/PrivaUserDetails";
+import PrivaStop from "./Components/PrivaStop/PrivaStop";
 
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -68,6 +69,7 @@ const App = () => {
           path="/Priva-React-Team/PrivaCharging"
           element={<PrivaCharging />}
         />
+        <Route path="/Priva-React-Team/PrivaStop" element={<PrivaStop />} />
       </Routes>
       <PrivaFooter />
       <div class="aurora"></div>

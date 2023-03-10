@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaStopCircle } from "react-icons/fa";
 
 import "./PrivaCharging.scss";
 
 const PrivaCharging = () => {
-  const [rangeValue, setRangeValue] = useState(0);
-  const startingTime = "02:30:00"; // set the starting time here
+  const [rangeValue, setRangeValue] = useState(() => {
+    const storedBrightness = localStorage.getItem("chargingSlider");
+    return storedBrightness !== null ? parseInt(storedBrightness) : 0;
+  });
+  const startingTime = "00:30:00"; // set the starting time here
   const [power, setPower] = useState(0); // initial power delivered is 0
 
   const handleChange = (event) => {
@@ -12,8 +17,16 @@ const PrivaCharging = () => {
     const maxPower = 500; // set maximum power delivered
 
     setRangeValue(inputVal);
+    localStorage.setItem("chargingSlider", inputVal);
     setPower((inputVal / 100) * maxPower);
   };
+
+  useEffect(() => {
+    const storedchargingSlider = localStorage.getItem("chargingSlider");
+    if (storedchargingSlider !== null) {
+      setRangeValue(parseInt(storedchargingSlider));
+    }
+  }, []);
 
   // convert starting time to seconds
   const startingTimeInSeconds = startingTime
@@ -58,6 +71,7 @@ const PrivaCharging = () => {
   return (
     <div className="privaMainDiv">
       <div className="charging-container">
+        <h1 className="titleCharging">Charging</h1>
         <h2 className="percentage">{rangeValue}% Charged</h2>
         <h2 className="remainimg-time">Time Remaining: {remainingTime}</h2>
         <h2 className="power">Power Delivered: {power}kW</h2>
@@ -78,6 +92,12 @@ const PrivaCharging = () => {
           onChange={handleChange}
         />
       </div>
+      <Link to="../Priva-React-Team/PrivaStop">
+        <button type="button" className="stopBtn">
+          <FaStopCircle />
+          Stop
+        </button>
+      </Link>
     </div>
   );
 };
