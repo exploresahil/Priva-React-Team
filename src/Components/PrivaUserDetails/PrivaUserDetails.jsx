@@ -70,7 +70,7 @@ const PrivaUserDetails = () => {
           <Link to="../Priva-React-Team/PrivaLogin">
             <button type="button">Back</button>
           </Link>
-          <Link to="../Priva-React-Team/PrivaLogin">
+          <Link to="../Priva-React-Team/PrivaChargeStatus">
             <button type="button">Proceed</button>
           </Link>
         </div>
