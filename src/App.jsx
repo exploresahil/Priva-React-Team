@@ -17,6 +17,7 @@ import PrivaCharging from "./Components/PrivaCharging/PrivaCharging";
 import PrivaUserDetails from "./Components/PrivaUserDetails/PrivaUserDetails";
 import PrivaStop from "./Components/PrivaStop/PrivaStop";
 import PrivaChargeStatus from "./Components/PrivaChargeStatus/PrivaChargeStatus";
+import PrivaThankYou from "./Components/PrivaThankYou/PrivaThankYou";
 
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -77,6 +78,10 @@ const App = () => {
         <Route
           path="/Priva-React-Team/PrivaChargeStatus"
           element={<PrivaChargeStatus />}
+        />
+        <Route
+          path="/Priva-React-Team/PrivaThankYou"
+          element={<PrivaThankYou />}
         />
       </Routes>
       <PrivaFooter />

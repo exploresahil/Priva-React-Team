@@ -7,81 +7,71 @@
   align-items: center;
   gap: 1em;
 
-  h2 {
+  padding: 2em 3em;
+  border-radius: 10px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.375);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+
+  .options {
     width: 100%;
-    text-align: center;
-    padding-bottom: 0.5em;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1.5em !important;
     border-bottom: 1px solid v.$light;
   }
 
-  .options {
-    display: flex;
-    gap: 1em;
-    button {
-      cursor: pointer;
-      width: 100px;
-      padding: 15px 10px;
-      font-size: 1.2rem;
-      border-radius: 10px;
+  button {
+    cursor: pointer;
+    width: 100px;
+    padding: 15px 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
 
-      margin-bottom: 2px;
+    margin-bottom: 2px;
 
-      outline: none;
+    outline: none;
 
-      background: rgba(255, 255, 255, 0.375);
+    background: rgba(255, 255, 255, 0.375);
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+    color: v.$light;
+
+    &:hover,
+    &:active {
+      background-color: v.$light;
       box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.125);
-
-      color: v.$light;
-
-      &:hover,
-      &:active {
-        background-color: v.$light;
-        box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.125);
-        color: v.$blue;
-      }
+      color: v.$blue;
     }
   }
 }
 
-.submitOption {
-  cursor: pointer;
-  width: 100px;
-  padding: 15px 10px;
-  font-size: 1.2rem;
-  border-radius: 10px;
+.select-charge-option-select {
+  display: none !important;
+  padding-bottom: 5em !important;
+}
 
-  margin-bottom: 2px;
+.activeOption {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
 
-  outline: none;
-
-  background: rgba(255, 255, 255, 0.375);
-  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-
-  color: v.$light;
-
-  &:hover,
-  &:active {
-    background-color: v.$light;
-    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    color: v.$blue;
-  }
+.statush2 {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5em !important;
+  border-bottom: 1px solid v.$light;
 }
 
 .buttonOption {
   display: flex;
   gap: 1em;
-}
-
-.select-charge-option-select {
-  display: none !important;
-}
-
-.activeOption {
-  display: flex !important;
 }
 
 .selectedOption {

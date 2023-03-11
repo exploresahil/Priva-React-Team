@@ -1,51 +1,129 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 import "./PrivaChargeStatus.scss";
 
 const PrivaChargeStatus = () => {
-  const [button1Color, setButton1Color] = useState("blue");
-  const [button2Color, setButton2Color] = useState("red");
+  const [selectedButton, setSelectedButton] = useState("button%");
+  const [selectedButtonOne, setSelectedButtonOne] = useState("button50%");
+  const [selectedButtonTwo, setSelectedButtonTwo] = useState("button₹50");
 
-  const handleButtonClick = (button) => {
-    if (button === 1) {
-      setButton1Color("white");
-      setButton2Color("red");
-    } else {
-      setButton1Color("blue");
-      setButton2Color("white");
-    }
+  const handleClick = (button) => {
+    setSelectedButton(button);
+  };
+
+  const handleClickOne = (button) => {
+    setSelectedButtonOne(button);
+  };
+
+  const handleClickTwo = (button) => {
+    setSelectedButtonTwo(button);
   };
 
   return (
     <div className="privaMainDiv">
       <div className="charge-main-container">
-        <h2>Current Battery Status: 25%</h2>
-
+        <h2 className="statush2">Current Battery Status: 25%</h2>
+        <h3 className="setValue">Choose to set limit</h3>
         <div className="options select-charge-option">
-          <button type="button" className="optionOne selectedOption">
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButton === "button%" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClick("button%")}
+          >
             By %
           </button>
-          <button type="button" className="optionOne">
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButton === "button₹" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClick("button₹")}
+          >
             By ₹
           </button>
         </div>
-        <div className="options select-charge-option-select activeOption">
-          <button type="button">50 %</button>
-          <button type="button">100 %</button>
-          <button type="button">Custom</button>
+
+        <h3 className="setValue">Set Value</h3>
+
+        <div
+          className={`options select-charge-option-select ${
+            selectedButton === "button%" ? "activeOption" : ""
+          }`}
+        >
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButtonOne === "button50%" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClickOne("button50%")}
+          >
+            50%
+          </button>
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButtonOne === "button100%" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClickOne("button100%")}
+          >
+            100%
+          </button>
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButtonOne === "buttonCustom" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClickOne("buttonCustom")}
+          >
+            Custom
+          </button>
         </div>
-        <div className="options select-charge-option-select ">
-          <button type="button">50 ₹</button>
-          <button type="button">100 ₹</button>
-          <button type="button">Custom</button>
+        <div
+          className={`options select-charge-option-select ${
+            selectedButton === "button₹" ? "activeOption" : ""
+          }`}
+        >
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButtonTwo === "button₹50" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClickTwo("button₹50")}
+          >
+            ₹50
+          </button>
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButtonTwo === "button₹100" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClickTwo("button₹100")}
+          >
+            ₹100
+          </button>
+          <button
+            type="button"
+            className={`submitOption ${
+              selectedButtonTwo === "buttonCustom" ? "selectedOption" : ""
+            }`}
+            onClick={() => handleClickTwo("buttonCustom")}
+          >
+            Custom
+          </button>
         </div>
         <div className="buttonOption">
-          <button className="submitOption" type="submit">
-            Back
-          </button>
-          <button className="submitOption" type="submit">
-            Submit
-          </button>
+          <Link to="../Priva-React-Team/PrivaUserDetails">
+            <button className="submitOption" type="submit">
+              Back
+            </button>
+          </Link>
+          <Link to="../Priva-React-Team/PrivaCharging">
+            <button className="submitOption" type="submit">
+              Submit
+            </button>
+          </Link>
         </div>
       </div>
     </div>

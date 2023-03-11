@@ -86,7 +86,7 @@ const PrivaStop = () => {
             <button value="0" onClick={handleClick}>
               0
             </button>
-            <Link to="../Priva-React-Team/">
+            <Link to="../Priva-React-Team/PrivaThankYou">
               <button value="confirm" onClick={handleClick}>
                 Confirm
               </button>
