@@ -9,12 +9,12 @@ const PrivaCharging = () => {
     const storedBrightness = localStorage.getItem("chargingSlider");
     return storedBrightness !== null ? parseInt(storedBrightness) : 0;
   });
-  const startingTime = "00:30:00"; // set the starting time here
+  const startingTime = "02:30:00"; // set the starting time here
   const [power, setPower] = useState(0); // initial power delivered is 0
 
   const handleChange = (event) => {
     const inputVal = event.target.value;
-    const maxPower = 500; // set maximum power delivered
+    const maxPower = 150; // set maximum power delivered
 
     setRangeValue(inputVal);
     localStorage.setItem("chargingSlider", inputVal);
