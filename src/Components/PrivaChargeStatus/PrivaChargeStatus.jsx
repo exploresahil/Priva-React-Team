@@ -1,66 +1,51 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import "./PrivaChargeStatus.scss";
 
 const PrivaChargeStatus = () => {
-  const [selectedOption, setSelectedOption] = useState("Option 1");
+  const [button1Color, setButton1Color] = useState("blue");
+  const [button2Color, setButton2Color] = useState("red");
 
-  const handleOptionSelect = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(`Selected option: ${selectedOption}`);
-    // Call an API or perform any other action with the selected option
+  const handleButtonClick = (button) => {
+    if (button === 1) {
+      setButton1Color("white");
+      setButton2Color("red");
+    } else {
+      setButton1Color("blue");
+      setButton2Color("white");
+    }
   };
 
   return (
     <div className="privaMainDiv">
       <div className="charge-main-container">
         <h2>Current Battery Status: 25%</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="options select-charge-option">
-            <label>
-              <input
-                type="radio"
-                name="options"
-                value="Option 1"
-                checked={selectedOption === "Option 1"}
-                onChange={handleOptionSelect}
-              />
-              <button
-                type="button"
-                className={selectedOption === "Option 1" ? "selected" : ""}
-                onClick={() => setSelectedOption("Option 1")}
-              >
-                By %
-              </button>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="options"
-                value="Option 2"
-                checked={selectedOption === "Option 2"}
-                onChange={handleOptionSelect}
-              />
-              <button
-                type="button"
-                className={selectedOption === "Option 2" ? "selected" : ""}
-                onClick={() => setSelectedOption("Option 2")}
-              >
-                By ₹
-              </button>
-            </label>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
 
-        <div className="options select-charge-option-one">
+        <div className="options select-charge-option">
+          <button type="button" className="optionOne selectedOption">
+            By %
+          </button>
+          <button type="button" className="optionOne">
+            By ₹
+          </button>
+        </div>
+        <div className="options select-charge-option-select activeOption">
           <button type="button">50 %</button>
           <button type="button">100 %</button>
           <button type="button">Custom</button>
+        </div>
+        <div className="options select-charge-option-select ">
+          <button type="button">50 ₹</button>
+          <button type="button">100 ₹</button>
+          <button type="button">Custom</button>
+        </div>
+        <div className="buttonOption">
+          <button className="submitOption" type="submit">
+            Back
+          </button>
+          <button className="submitOption" type="submit">
+            Submit
+          </button>
         </div>
       </div>
     </div>

@@ -11,7 +11,9 @@ import PrivaConnectionFailed from "./Components/PrivaPopups/PrivaConnectionFaile
 import PrivaChargerConnected from "./Components/PrivaPopups/PrivaChargerConnected/PrivaChargerConnected";
 
 import PrivaSettings from "./Components/PrivaSettings/PrivaSettings";
+
 import PrivaCharging from "./Components/PrivaCharging/PrivaCharging";
+
 import PrivaUserDetails from "./Components/PrivaUserDetails/PrivaUserDetails";
 import PrivaStop from "./Components/PrivaStop/PrivaStop";
 import PrivaChargeStatus from "./Components/PrivaChargeStatus/PrivaChargeStatus";
@@ -62,6 +64,7 @@ const App = () => {
             <PrivaSettings onBrightnessChange={handleBrightnessChange} />
           }
         />
+
         <Route
           path="/Priva-React-Team/PrivaUserDetails"
           element={<PrivaUserDetails />}
